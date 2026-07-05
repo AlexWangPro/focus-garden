@@ -17,5 +17,10 @@
     "react-dom": "latest",
     "express": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
+  "packageManager": "npm@10.8.2"
 }

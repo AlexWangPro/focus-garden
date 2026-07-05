@@ -62,3 +62,21 @@ npm start
 - 不会上传到服务器
 
 如果未来需要多设备同步，可以再增加数据库和账号系统。
+
+## Railway 部署失败修复说明
+
+如果 Railway 日志里出现 `npm error Exit handler never called!` 或 `npm ci did not complete successfully`，请使用本修复版。
+
+本版本新增：
+
+- `Dockerfile`：让 Railway 用固定的 Node 20.19.0 构建，绕开 Railpack 默认 Node/npm 环境问题。
+- `.nvmrc` / `.node-version`：固定 Node 版本。
+- `railway.json`：固定 Railway 构建与启动设置。
+
+Railway 设置建议：
+
+- Build Command：留空
+- Start Command：留空，或填 `npm start`
+- Root Directory：留空，保持 `/`
+
+上传 GitHub 后 Railway 会自动识别根目录的 Dockerfile 并构建。
