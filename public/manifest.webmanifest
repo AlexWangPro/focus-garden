@@ -1,0 +1,18 @@
+{
+  "name": "专注花园 Focus Garden",
+  "short_name": "专注花园",
+  "description": "适合儿童的触屏专注力训练 Web App",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8e8",
+  "theme_color": "#8bd8bd",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
