@@ -1,16 +1,21 @@
-FROM node:20.19.0-alpine AS build
+FROM node:20.19.0-alpine
+
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci --include=dev --no-audit --no-fund
+
+ENV npm_config_audit=false \
+    npm_config_fund=false \
+    npm_config_update_notifier=false \
+    npm_config_loglevel=warn
+
+# Do not use npm ci here. Railway/npm sometimes hangs or throws
+# "Exit handler never called" during clean install. This app is small,
+# so one tolerant npm install is safer for Railway.
+COPY package.json ./
+RUN npm install --no-audit --no-fund --legacy-peer-deps
+
 COPY . .
 RUN npm run build
 
-FROM node:20.19.0-alpine AS runtime
-WORKDIR /app
 ENV NODE_ENV=production
-COPY package.json package-lock.json ./
-RUN npm ci --omit=dev --no-audit --no-fund
-COPY server.js ./server.js
-COPY --from=build /app/dist ./dist
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
