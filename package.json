@@ -1,24 +1,13 @@
 {
-  "name": "focus-garden-ultimate",
-  "version": "1.0.1",
+  "name": "focus-studio-8-10",
+  "version": "2.0.0",
   "private": true,
+  "description": "Focus Studio: 8-10岁学习型专注力训练 Web App",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "start": "node server.js",
-    "preview": "vite preview --host 0.0.0.0"
-  },
-  "dependencies": {
-    "express": "4.19.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "4.3.1",
-    "vite": "5.4.10"
+    "start": "node server.js"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20 <23"
   }
 }
